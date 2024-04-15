@@ -1,6 +1,12 @@
+import Categorycomp from "../Components/Categorycomp"
+import Searchcomp from "../Components/Searchcomp"
+
 const Home = () => {
   return (
-    <div>Home</div>
+    <div>
+        <Searchcomp/>
+        <Categorycomp/>
+    </div>
   )
 }
 export default Home
