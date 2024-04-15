@@ -2,21 +2,12 @@ const express = require('express');
 const mysql = require('mysql');
 
 // Create a MySQL connection
-const connection = mysql.createConnection({
+const connection = mysql.createPool({
   host: 'localhost',
   user: 'root',
   password: 'YiGdf?ysc?F$4HEy',
   database: 'candy_hub_db',
   port: 3006
-});
-
-// Connect to MySQL
-connection.connect((err) => {
-  if (err) {
-    console.error('Error connecting to MySQL database: ' + err.stack);
-    return;
-  }
-  console.log('Connected to MySQL database as id ' + connection.threadId);
 });
 
 const app = express();
