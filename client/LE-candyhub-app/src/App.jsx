@@ -7,7 +7,6 @@ function App() {
 
   return (
     <>
-      <h1>CandyHub</h1>
       <Navigation />
       <Switch />
     </>

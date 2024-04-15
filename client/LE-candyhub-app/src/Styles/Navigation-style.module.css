@@ -1,0 +1,41 @@
+.headerwrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2vh 8vw;
+    flex-shrink: 0;
+    border-bottom: 1px solid black;
+}
+
+.mainNavWrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mainNav{
+    list-style-type: none;
+    display: flex;
+    align-items: start;
+    gap: 5vw;
+    margin: 0;
+}
+
+.logoimg{
+    width: 150px;
+    height: auto;
+    margin-right: auto;
+    padding-right: 2vw;
+}
+
+.home,
+.login,
+.cart{
+    text-decoration: none;
+    color: #000;
+    font-size: 20px;
+}
+
+.cart{
+    margin-left: auto;
+}
