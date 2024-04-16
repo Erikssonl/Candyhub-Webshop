@@ -1,10 +1,13 @@
 import Categorycomp from "../Components/Categorycomp"
 import Searchcomp from "../Components/Searchcomp"
+import CandyContextProvider from "../context/CandyContextProvider"
 
 const Home = () => {
   return (
     <div>
-        <Searchcomp/>
+        <CandyContextProvider>
+            <Searchcomp/>
+        </CandyContextProvider>
         <Categorycomp/>
     </div>
   )

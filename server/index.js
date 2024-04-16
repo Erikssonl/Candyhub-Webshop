@@ -1,5 +1,7 @@
+const cors = require('cors');
 const express = require('express');
 const mysql = require('mysql');
+
 
 // Create a MySQL connection
 const connection = mysql.createPool({
@@ -12,6 +14,7 @@ const connection = mysql.createPool({
 
 const app = express();
 const port = 3000;
+app.use(cors());
 
 app.get('/products', (req, res) => {
   connection.query('SELECT * FROM products', (error, results) => {
