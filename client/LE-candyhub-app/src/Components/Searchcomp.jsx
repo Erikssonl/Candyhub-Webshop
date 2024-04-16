@@ -2,7 +2,7 @@ const Searchcomp = () => {
   return (
     <div>
         <input type="text" placeholder="What is your favorite candy?" />
-        <button>Search</button>
+        <button >Search</button>
     </div>
   )
 }

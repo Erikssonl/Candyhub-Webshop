@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2vh 8vw;
+    padding: 0 8vw;
     flex-shrink: 0;
     border-bottom: 1px solid black;
 }
@@ -16,13 +16,12 @@
 .mainNav{
     list-style-type: none;
     display: flex;
-    align-items: start;
     gap: 5vw;
     margin: 0;
 }
 
 .logoimg{
-    width: 150px;
+    width: 12vw;
     height: auto;
     margin-right: auto;
     padding-right: 2vw;
