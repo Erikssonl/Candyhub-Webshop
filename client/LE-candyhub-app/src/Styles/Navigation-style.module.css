@@ -4,7 +4,7 @@
     align-items: center;
     padding: 0 8vw;
     flex-shrink: 0;
-    border-bottom: 1px solid black;
+    /* border-bottom: 1px solid black; */
 }
 
 .mainNavWrap{
