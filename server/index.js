@@ -1,3 +1,4 @@
+const { json } = require('body-parser');
 const cors = require('cors');
 const express = require('express');
 const mysql = require('mysql');
@@ -14,6 +15,7 @@ const connection = mysql.createPool({
 
 const app = express();
 const port = 3000;
+app.use(express.json());
 app.use(cors());
 
 app.get('/products', (req, res) => {
@@ -25,6 +27,23 @@ app.get('/products', (req, res) => {
     }
     res.json(results);
   });
+});
+
+app.post("/registration", (req, res) => {
+
+  const username = req.body.username;
+  const password = req.body.password;
+
+  connection.query("INSERT INTO users (username, password) VALUES (?,?)",
+    [username, password],
+    (err, result) => {
+      if (err) {
+        res.status(400).json(err)
+      } else {
+        return res.status(200).json(result);
+      }
+    }
+  );
 });
 
 // Start the server
