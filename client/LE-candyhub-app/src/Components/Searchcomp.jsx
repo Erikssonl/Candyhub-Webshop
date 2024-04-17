@@ -41,6 +41,9 @@ const Searchcomp = () => {
                                 <p>{candy.category}</p>
                                 <p>Price: {candy.price}$</p>
                                 <p>Stock: {candy.stock}</p>
+                                <button 
+                                className="btn bg-customBtnGreen rounded-full px-6 py-2 font-semibold hover:bg-green-300 transition-colors shadow-btnShadow ">
+                                Add to cart</button>
                             </div>
                         ))}
                     </div>
