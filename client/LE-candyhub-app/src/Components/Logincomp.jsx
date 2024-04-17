@@ -1,4 +1,9 @@
+import { useContext } from 'react';
+import { CandyContext } from '../context/CandyContextProvider';
+
 const Logincomp = () => {
+    const { userName, password, setUserName, setPassword, login  } = useContext(CandyContext)
+
   return (
     <div>
         <div className="card w-96 bg-base-100 shadow-xl">
@@ -10,7 +15,9 @@ const Logincomp = () => {
                     type="text" 
                     className="grow" 
                     placeholder="Enter username"
-                    required/>
+                    required
+                    value={userName}
+                    onChange={(e)=> setUserName(e.target.value)}/>
                 </label>
                 <br /><br />
                 <label className="input input-bordered flex items-center gap-2">
@@ -19,10 +26,12 @@ const Logincomp = () => {
                     type="password" 
                     className="grow" 
                     placeholder="Enter password" 
-                    required/>
+                    required
+                    value={password}
+                    onChange={(e)=> setPassword(e.target.value)}/>
                 </label>
                 <div className="card-actions justify-end">
-                    <button className="btn bg-customBtnGreen rounded-full px-6 py-2 font-semibold hover:bg-green-300 transition-colors shadow-btnShadow">
+                    <button onClick={()=> login()} className="btn bg-customBtnGreen rounded-full px-6 py-2 font-semibold hover:bg-green-300 transition-colors shadow-btnShadow">
                     Log in
                     </button>
                 </div>

@@ -46,6 +46,38 @@ app.post("/registration", (req, res) => {
   );
 });
 
+app.post("/login", (req, res) => {
+  const username = req.body.username;
+  const password = req.body.password;
+
+  connection.query("SELECT * FROM users WHERE username = ? AND password = ?",
+    [username, password],
+    (err, result) => {
+      if (err) {
+        res.send({err: err})
+        console.log(err)
+      } 
+
+      if (result) {
+        res.send(result)
+      } else {
+        res.send({message: "No user found, wrong username or password"})
+      }
+      // return res.status(200).json(result);
+    }
+  );
+
+})
+
+app.post("/orders", (req, res) => {
+  // const orders = req.body.orders
+
+  // orders.forEach(order => {
+  //   connection.query("INSERT INTO * FROM users WHERE username = ? AND password = ?",
+  // });
+
+})
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);

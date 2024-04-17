@@ -7,6 +7,8 @@ const CandyContextProvider = (props) => {
     const [getByCategory, setGetByCategory] = useState([]);
     const [regUser, setRegUser] = useState('')
     const [regPassword, setRegPassword] = useState('')
+    const [userName, setUserName] = useState('')
+    const [password, setPassword] = useState('')
         
     const getFromCandyProducts = () => {
         fetch("http://localhost:3000/products") 
@@ -50,9 +52,33 @@ const CandyContextProvider = (props) => {
           .catch(error => console.error('Error:', error));
     }
 
+    const login = () => {
+      fetch('http://localhost:3000/login', {
+          method: 'POST',
+          headers: { 'Content-Type':  'application/json'  },
+          body: JSON.stringify({
+            username: userName,
+            password: password
+          })
+        })
+        .then(response => {
+          if (!response.ok) {
+              throw new Error(`HTTP status ${response.status}`);
+          }
+          return response.json();
+        } )
+        .then(data => {
+          console.log(data)
+          if (data.length < 1) {
+            console.log("No user found, wrong username or password")
+          }
+        })
+        .catch(error => console.error('Error:', error));
+  }
+
 
   return (
-    <CandyContext.Provider value={{ allProducts, getByCategory, regUser, regPassword, setRegUser, setRegPassword, postToUsers}}>
+    <CandyContext.Provider value={{ allProducts, getByCategory, regUser, regPassword, setRegUser, setRegPassword, postToUsers, userName, password, setUserName, setPassword, login }}>
         {props.children}
     </CandyContext.Provider>
   )
