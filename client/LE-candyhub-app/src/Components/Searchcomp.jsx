@@ -10,10 +10,16 @@ const Searchcomp = () => {
     const searchInput = useRef('');
 
     const handelSearch = () => {
-        const search = searchInput.current.value.toLowerCase();
-        const filter = allProducts.filter(allProducts => search && allProducts.name.toLowerCase().includes(search) || allProducts.category.toLowerCase().includes(search))
-        setCandySearch(filter)
-        setSearchAttempted(true)
+        const search = searchInput.current.value.trim().toLowerCase();
+        if (search) {
+            const filter = allProducts.filter(product => 
+                product.name.toLowerCase().includes(search) || product.category.toLowerCase().includes(search)
+            );
+            setCandySearch(filter);
+        } else {
+            setCandySearch([]);
+        }
+        setSearchAttempted(true);
     }
 
 
@@ -30,7 +36,7 @@ const Searchcomp = () => {
                     <h2>Sökresultat:</h2>
                     <div>
                         {candySearch.map((candy, idx) => (
-                            <div key={idx} >
+                            <div className={styles.prudoctWrap} key={idx} >
                                 <h3>{candy.name}</h3>
                                 <p>{candy.category}</p>
                                 <p>Price: {candy.price}$</p>
