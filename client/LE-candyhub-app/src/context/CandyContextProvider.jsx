@@ -1,4 +1,5 @@
 import { useState, useEffect, createContext, useRef } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 export const CandyContext = createContext();
 
@@ -10,6 +11,7 @@ const CandyContextProvider = (props) => {
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
     const [loginStatus, setLoginStatus] = useState(null)
+    const [cart, setCart] = useState([]);
         
     const getFromCandyProducts = () => {
         fetch("http://localhost:3000/products") 
@@ -102,7 +104,35 @@ const CandyContextProvider = (props) => {
         });
     }
 
+    const addToCart = (candy) => {
+      setCart([...cart, candy]);
+    };
+
     const postToOrders = () => {
+      const orderId = uuidv4();
+      const ordersWithOrderId = cart.map(item => ( {
+        ...item,
+        orderId: orderId
+      }));
+
+      return fetch('http://localhost:3000/orders', {
+        method: 'POST',
+        headers: { 'content-Type': 'application/json' },
+        body: JSON.stringify({ orders: ordersWithOrderId})
+      })
+      .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP status ${response.status}`);
+        }
+        return response.text();
+      } )
+      .then(data => {
+        console.log(data)
+        setCart([]);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
 
     }
 
@@ -110,7 +140,8 @@ const CandyContextProvider = (props) => {
   return (
     <CandyContext.Provider value={{ getByCategory, regUser, regPassword,
      setRegUser, setRegPassword, postToUsers, userName, password, setUserName, setPassword, login, loginStatus,
-     handleSearch, searchAttempted, candySearch, setCandySearch, setSearchTerm, searchTerm}}>
+     handleSearch, searchAttempted, candySearch, setCandySearch, setSearchTerm, searchTerm,
+     cart, addToCart, postToOrders}}>
         {props.children}
     </CandyContext.Provider>
   )
