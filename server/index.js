@@ -69,12 +69,20 @@ app.post("/login", (req, res) => {
 })
 
 app.post("/orders", (req, res) => {
-  // const orders = req.body.orders
+  const orders = req.body.orders
 
-  // orders.forEach(order => {
-  //   connection.query("INSERT INTO * FROM users WHERE username = ? AND password = ?",
-  // });
-
+  orders.forEach(item => {
+    const { name, price, quantity, orderID} = item;
+    connection.query('INSERT INTO orders (name, price, quantity, orderID) VALUES (?, ?, ?, ?)',
+    [name, price, quantity, orderID], (err, result) => {
+      if (err) {
+        console.error(err);
+      } else {
+        console.log('Row inserted:', result)
+      }
+    });
+  });
+  res.send('Data is successfully inserted');
 })
 
 // Start the server

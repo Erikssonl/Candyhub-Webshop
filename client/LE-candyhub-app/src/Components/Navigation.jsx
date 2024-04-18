@@ -15,7 +15,6 @@ const Navigation = () => {
             </div>
             <NavLink className={styles.cart} to="/cart">Cart</NavLink> 
         </nav>
-        <div className="divider" style={{ height: '1px', background: 'black' }}></div>
     </div>
   )
 }

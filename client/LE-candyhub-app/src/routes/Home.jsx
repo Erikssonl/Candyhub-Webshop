@@ -1,13 +1,31 @@
+import { useEffect, useContext } from 'react';
+import { useLocation } from 'react-router-dom';
 import Categorycomp from "../Components/Categorycomp"
 import Searchcomp from "../Components/Searchcomp"
-import CandyContextProvider from "../context/CandyContextProvider"
+import { CandyContext } from '../context/CandyContextProvider';
+import homeImg from '../assets/background.jpg'
+import styles from '../Styles/home-style.module.css'
 
 const Home = () => {
+  const location = useLocation();
+  const { setCandySearch, setSearchTerm } = useContext(CandyContext);
+
+  useEffect(() => {
+    if (location.pathname === '/') {
+      setCandySearch([]);
+      setSearchTerm('');
+    }
+  }, [location, setCandySearch, setSearchTerm]);
+
   return (
     <div>
-        <CandyContextProvider>
+        <div className={styles.homeWrap}>
+          <img className={styles.homeImg} src={homeImg} alt="" />
+          <div className={styles.overlayContent}>
+            <h1 className="text-3xl">Welcome to CandyHub!</h1>
             <Searchcomp/>
-        </CandyContextProvider>
+          </div>
+        </div>
         <Categorycomp/>
     </div>
   )
