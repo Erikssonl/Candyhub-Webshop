@@ -63,7 +63,6 @@ app.post("/login", (req, res) => {
       } else {
         res.send({message: "No user found, wrong username or password"})
       }
-      // return res.status(200).json(result);
     }
   );
 

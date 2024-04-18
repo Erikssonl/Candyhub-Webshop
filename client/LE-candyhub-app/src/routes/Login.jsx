@@ -1,5 +1,4 @@
 import Logincomp from "../Components/Logincomp"
-import Registrationcomp from "../Components/Registrationcomp"
 import CandyContextProvider from "../context/CandyContextProvider"
 
 const Login = () => {
@@ -8,7 +7,6 @@ const Login = () => {
       <div>
       <CandyContextProvider>
         <Logincomp /> 
-        <Registrationcomp />
       </CandyContextProvider>
       </div>
     </div>
