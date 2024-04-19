@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import { CandyContext } from '../context/CandyContextProvider';
+import styles from '../Styles/Cart-style.module.css'
 
 const Cart = () => {
   const { cart, postToOrders } = useContext(CandyContext)
@@ -16,8 +17,8 @@ const Cart = () => {
   }
 
   return (
-    <div>
-      <h2>Candy Cart</h2>
+    <div className={styles.cartWrap}>
+      <h2 className={styles.h2Cart}>Candy Cart</h2>
       <ul>
         {cart.map((item, idx) => (
           <li key={idx}>

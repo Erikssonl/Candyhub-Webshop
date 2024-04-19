@@ -34,5 +34,10 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 5vh;
+}
 
+.candyImg{
+    overflow: visible;
+    width: 100%;
+    height: auto;
 }

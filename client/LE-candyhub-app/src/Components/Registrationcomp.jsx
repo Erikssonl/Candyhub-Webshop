@@ -1,9 +1,10 @@
 import { useContext } from 'react';
 import { CandyContext } from '../context/CandyContextProvider';
+import { Link } from "react-router-dom"
 import styles from '../Styles/Logreg-style.module.css'
 
 const Registrationcomp = () => {
-    const { regUser, regPassword, setRegUser, setRegPassword, postToUsers  } = useContext(CandyContext)
+    const { regUser, regPassword, setRegUser, setRegPassword, postToUsers, regStatus  } = useContext(CandyContext)
 
   return (
     <div className={styles.regWrap}>
@@ -36,6 +37,29 @@ const Registrationcomp = () => {
                     <button onClick={() => postToUsers()} className="btn bg-customBtnGreen rounded-full px-6 py-2 font-semibold hover:bg-green-300 transition-colors shadow-btnShadow">
                     Register users
                     </button>
+                </div>
+                <div>
+                    {regStatus === false ? (
+                        <div>
+                            <br />
+                            <div role="alert" className="alert alert-error">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <span>Registration faild</span>
+                            </div>
+                        </div>
+                    ) : regStatus === true ? (
+                        <div>
+                            <br />
+                            <div role="alert" className="alert alert-success">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <span>Registration successful</span>
+                            </div>
+                            <br />
+                            <div className="card-actions justify-center">
+                                <Link className={styles.shopLink} to="/login">Click here to log in!</Link>
+                            </div>
+                        </div>
+                    ) : null}
                 </div>
             </div>
         </div>

@@ -38,7 +38,6 @@ const CandyContextProvider = (props) => {
     const [searchAttempted, setSearchAttempted] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
 
-    // const searchInput = useRef('');
 
     const handleSearch = (searchInput) => {
       const search = searchInput.trim().toLowerCase();
@@ -52,6 +51,8 @@ const CandyContextProvider = (props) => {
       }
       setSearchAttempted(true);
     };
+
+    const [regStatus, setRegStatus] = useState(null)
 
     const postToUsers = () => {
         fetch('http://localhost:3000/registration', {
@@ -70,8 +71,12 @@ const CandyContextProvider = (props) => {
           } )
           .then(data => {
             console.log(data)
+            setRegStatus(true);
           })
-          .catch(error => console.error('Error:', error));
+          .catch(error => {
+            console.error('Error:', error);
+            setRegStatus(false);
+          });
     }
 
     const login = () => {
@@ -142,7 +147,7 @@ const CandyContextProvider = (props) => {
     <CandyContext.Provider value={{ getByCategory, regUser, regPassword,
      setRegUser, setRegPassword, postToUsers, userName, password, setUserName, setPassword, login, loginStatus,
      handleSearch, searchAttempted, candySearch, setCandySearch, setSearchTerm, searchTerm,
-     cart, addToCart, postToOrders}}>
+     cart, addToCart, postToOrders, regStatus}}>
         {props.children}
     </CandyContext.Provider>
   )
