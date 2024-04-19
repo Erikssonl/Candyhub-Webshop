@@ -26,7 +26,7 @@ const Home = () => {
             <Searchcomp/>
           </div>
         </div>
-        <Categorycomp/>
+        {/* <Categorycomp/> ska lägga till detta senare när jag har tid, efter kursens slut då det ej va ett kriterie får uppgiften */}
     </div>
   )
 }

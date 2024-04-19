@@ -32,8 +32,15 @@
 
 .quantityWrap{
     display: flex;
-    flex-direction: column;
     margin-bottom: 5vh;
+    column-gap: 2vw;
+}
+
+.quantityInput{
+    padding: 0.75rem 1rem;
+    border: none;
+    outline: none;
+    box-shadow: 4px 10px 25px 0px rgba(0, 0, 0, 0.1);
 }
 
 .candyImg{

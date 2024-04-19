@@ -81,13 +81,15 @@ const Resultcomp = () => {
                             <form method="dialog" onClick={closeModal}>
                                 <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">×</button>
                             </form>
+                            <figure className="px-10 pt-10">
+                                <img src={selectedCandy.image_path} alt="" className="rounded-xl" />
+                            </figure>
                             <h3 className="font-bold text-lg">{selectedCandy.name}</h3>
-                            <p className="py-4">Price: {selectedCandy.price}$</p>
-                            <p className="py-4">Stock: {selectedCandy.stock}</p>
+                            <p className="py-4">Price: {selectedCandy.price}$ - Stock: {selectedCandy.stock}</p>
+                            <label>Quantity:</label>
                             <div className={styles.quantityWrap}>
-                                <label>Quantity:</label>
                                 <input
-                                    className={styles.input}
+                                    className={styles.quantityInput}
                                     type="number"
                                     id="quantity"
                                     name='quantity'
@@ -95,11 +97,11 @@ const Resultcomp = () => {
                                     value={quantity}
                                     onChange={hadndleQuantity}
                                 />
+                                <button onClick={handleAddToCart}
+                                    className="btn bg-customBtnGreen rounded-full px-6 py-2 font-semibold hover:bg-green-300 transition-colors shadow-btnShadow ">
+                                    Add to cart
+                                </button>
                             </div>
-                            <button onClick={handleAddToCart}
-                                className="btn bg-customBtnGreen rounded-full px-6 py-2 font-semibold hover:bg-green-300 transition-colors shadow-btnShadow ">
-                                Add to cart
-                            </button>
                         </div>
                     </dialog>
                 )}
