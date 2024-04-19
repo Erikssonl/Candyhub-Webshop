@@ -72,9 +72,9 @@ app.post("/orders", (req, res) => {
   const orders = req.body.orders
 
   orders.forEach(item => {
-    const { name, price, quantity, orderID} = item;
-    connection.query('INSERT INTO orders (name, price, quantity, orderID) VALUES (?, ?, ?, ?)',
-    [name, price, quantity, orderID], (err, result) => {
+    const { name, price, quantity, orderId} = item;
+    connection.query('INSERT INTO orders (name, price, quantity, orderId) VALUES (?, ?, ?, ?)',
+    [name, price, quantity, orderId], (err, result) => {
       if (err) {
         console.error(err);
       } else {

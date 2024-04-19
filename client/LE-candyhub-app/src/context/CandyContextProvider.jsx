@@ -110,6 +110,7 @@ const CandyContextProvider = (props) => {
 
     const postToOrders = () => {
       const orderId = uuidv4();
+      console.log(orderId)
       const ordersWithOrderId = cart.map(item => ( {
         ...item,
         orderId: orderId
