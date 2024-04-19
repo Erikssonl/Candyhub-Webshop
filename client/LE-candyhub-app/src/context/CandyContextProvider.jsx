@@ -142,12 +142,27 @@ const CandyContextProvider = (props) => {
 
     }
 
+    const removeFromCart = (productId) => {
+      const updatedCart = cart.filter(item => item.id !== productId);
+      setCart(updatedCart);
+    }
+
+    const updateItemQuantityCart = (productId, quantity) => {
+      const updatedCart = cart.map(item => {
+        if (item.id === productId) {
+          return { ...item, quantity: quantity };
+        }
+        return item;
+      });
+      setCart(updatedCart);
+    }
+
 
   return (
     <CandyContext.Provider value={{ getByCategory, regUser, regPassword,
      setRegUser, setRegPassword, postToUsers, userName, password, setUserName, setPassword, login, loginStatus,
      handleSearch, searchAttempted, candySearch, setCandySearch, setSearchTerm, searchTerm,
-     cart, addToCart, postToOrders, regStatus}}>
+     cart, addToCart, postToOrders, regStatus, removeFromCart, updateItemQuantityCart}}>
         {props.children}
     </CandyContext.Provider>
   )

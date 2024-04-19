@@ -23,8 +23,27 @@
 }
 
 .productList{
+    background-color: #FFFFF8;
     display: flex;
     flex-direction: column;
     margin: 3vh 0;
-    border-bottom: 1px solid black;
+    /* border: 1px solid black; */
+    border-radius: 15px;
+    padding: 10% 20%;
+    row-gap: 3vh;
+    box-shadow: 4px 10px 25px 0px rgba(0, 0, 0, 0.25);
+}
+
+.quantityInput{
+    padding: 0.75rem 1rem;
+    border: none;
+    outline: none;
+    box-shadow: 4px 10px 25px 0px rgba(0, 0, 0, 0.1);
+}
+
+.quantityWrap{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5vh;
+    column-gap: 2vw;
 }

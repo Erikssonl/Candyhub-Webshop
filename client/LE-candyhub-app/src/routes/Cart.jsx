@@ -5,7 +5,7 @@ import styles from '../Styles/Cart-style.module.css'
 
 const Cart = () => {
   const navigate = useNavigate()
-  const { cart, postToOrders } = useContext(CandyContext)
+  const { cart, postToOrders, removeFromCart, updateItemQuantityCart } = useContext(CandyContext)
   const [orderMessage, setOrderMessage] = useState('')
   
   const handleOrderPlaced = () => {
@@ -22,6 +22,14 @@ const Cart = () => {
     })
   }
 
+  const handleRemoveFromCart = (productId) => {
+    removeFromCart(productId);
+  }
+
+  const handleQuantityChange = (productId, quantity) => {
+    updateItemQuantityCart(productId, quantity)
+  }
+
 
   return (
     <div className={styles.cartContentWrap}>
@@ -32,7 +40,19 @@ const Cart = () => {
             <li className={styles.productList} key={idx}>
               <p>{item.name}</p>
               <p>Unit price: {item.price}$</p>
-              <p>Quantity: {item.quantity}</p>
+              <div className={styles.quantityWrap} >
+                <label>Quantity:</label>
+                <input
+                  className={styles.quantityInput}
+                  type="number"
+                  id={`quantity-${idx}`}
+                  name={`quantity-${idx}`}
+                  min="1"
+                  value={item.quantity}
+                  onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))} 
+                />
+              </div>
+              <button className="btn btn-error shadow-btnShadow" onClick={() => handleRemoveFromCart(item.id)}>Remove product</button>
             </li>
           ))}
         </ul>
