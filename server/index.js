@@ -69,21 +69,22 @@ app.post("/login", (req, res) => {
 })
 
 app.post("/orders", (req, res) => {
-  const orders = req.body.orders
+  const orders = req.body.orders;
 
   orders.forEach(item => {
-    const { name, price, quantity, orderId} = item;
+    const { name, price, quantity, orderId } = item;
     connection.query('INSERT INTO orders (name, price, quantity, orderId) VALUES (?, ?, ?, ?)',
-    [name, price, quantity, orderId], (err, result) => {
-      if (err) {
-        console.error(err);
-      } else {
-        console.log('Row inserted:', result)
-      }
-    });
+      [name, price, quantity, orderId], (err, result) => {
+        if (err) {
+          console.error(err);
+          res.status(500).json({ error: 'Internal Server Error' });
+        } else {
+          console.log('Row inserted:', result);
+          res.status(201).json({ message: 'Data is successfully inserted' });
+        }
+      });
   });
-  res.send('Data is successfully inserted');
-})
+});
 
 // Start the server
 app.listen(port, () => {
