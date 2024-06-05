@@ -1,0 +1,7 @@
+.categoryWrap{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 25px;
+    padding: 10px;
+    gap: 2%;
+}

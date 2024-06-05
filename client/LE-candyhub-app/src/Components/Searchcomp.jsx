@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { useContext, useRef, useState } from 'react';
+import { useContext } from 'react';
 import { CandyContext } from '../context/CandyContextProvider';
 import styles from '../Styles/Searchcomp-style.module.css'
 
@@ -7,12 +7,15 @@ const Searchcomp = () => {
     const navigate = useNavigate()
     const { setSearchTerm, handleSearch, searchTerm } = useContext(CandyContext)
 
-
     const handleSearchClick = () => {
-        handleSearch(searchTerm);
-        navigate('/Searchresult');
-    };
 
+      if (searchTerm.trim() === '') {
+        return;
+      }
+
+      handleSearch(searchTerm);
+      navigate('/Searchresult');
+    };
 
   return (
     <>

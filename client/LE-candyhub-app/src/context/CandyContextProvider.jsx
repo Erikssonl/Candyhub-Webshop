@@ -18,10 +18,14 @@ const CandyContextProvider = (props) => {
             .then(response => response.json()) 
             .then(data => { 
 
-                const filteredCategories = data.filter(item => item.category);
-
+              const filteredCategories = data.filter(item => item.category);
+              if (filteredCategories.length > 0) {
                 setAllProducts(data);
                 setGetByCategory(filteredCategories);
+              } else {
+                setAllProducts([]);
+                setGetByCategory([]);
+              }
             })
             .catch((error) => {
                 console.error("Fetching error:", error); 
