@@ -31,6 +31,9 @@ const CandyContextProvider = (props) => {
       Fudge: '#A4CAEE',
       HardCandy: '#F8C6D1',
     };
+    const [selectedCandy, setSelectedCandy] = useState(null);
+    const [modalOpen, setModalOpen] = useState(false);
+    const [quantity, setQuantity] = useState(1);
 
     const getFromCandyProducts = () => {
       fetch("http://localhost:3000/products")
@@ -207,13 +210,36 @@ const CandyContextProvider = (props) => {
       setCart(updatedCart);
     }
 
+    const openModal = (candy) => {
+      setSelectedCandy(candy);
+      setModalOpen(true);
+    };
+
+    const closeModal = () => {
+      setSelectedCandy(null);
+      setModalOpen(false)
+      setQuantity(1)
+    }
+
+    const hadndleQuantity = (e) => {
+      setQuantity(parseInt(e.target.value));
+    }
+
+    const handleAddToCart = () => {
+      if (selectedCandy) {
+          addToCart({ ...selectedCandy, quantity});
+          closeModal();
+      }
+    }
+
 
   return (
     <CandyContext.Provider value={{ getByCategory, regUser, regPassword,
      setRegUser, setRegPassword, postToUsers, userName, password, setUserName, setPassword, login, loginStatus,
      handleSearch, searchAttempted, candySearch, setCandySearch, setSearchTerm, searchTerm,
      cart, addToCart, postToOrders, regStatus, removeFromCart, updateItemQuantityCart, categories, categoryColors,
-     selectedCategory, setSelectedCategory}}>
+     selectedCategory, setSelectedCategory, selectedCandy, setSelectedCandy, modalOpen, setModalOpen, quantity, setQuantity,
+     openModal, closeModal, hadndleQuantity, handleAddToCart}}>
         {props.children}
     </CandyContext.Provider>
   )

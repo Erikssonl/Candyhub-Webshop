@@ -3,33 +3,9 @@ import { CandyContext } from '../context/CandyContextProvider';
 import styles from '../Styles/Searchcomp-style.module.css'
 
 const Resultcomp = () => {
-    const { candySearch, setSearchTerm, handleSearch, searchAttempted, searchTerm, addToCart } = useContext(CandyContext)
-
-    const [selectedCandy, setSelectedCandy] = useState(null);
-    const [modalOpen, setModalOpen] = useState(false);
-    const [quantity, setQuantity] = useState(1);
-
-    const openModal = (candy) => {
-        setSelectedCandy(candy);
-        setModalOpen(true);
-    };
-
-    const closeModal = () => {
-        setSelectedCandy(null);
-        setModalOpen(false)
-        setQuantity(1)
-    }
-
-    const hadndleQuantity = (e) => {
-        setQuantity(parseInt(e.target.value));
-    }
-
-    const handleAddToCart = () => {
-        if (selectedCandy) {
-            addToCart({ ...selectedCandy, quantity});
-            closeModal();
-        }
-    }
+    const { candySearch, setSearchTerm, handleSearch, searchAttempted, searchTerm, selectedCandy,
+        modalOpen, quantity, openModal, closeModal, hadndleQuantity, handleAddToCart
+    } = useContext(CandyContext)
 
     console.log(candySearch)
 
