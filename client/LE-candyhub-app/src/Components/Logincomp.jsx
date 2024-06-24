@@ -10,7 +10,7 @@ const Logincomp = () => {
     <div className={styles.loginWrap}>
         <div className="card w-96 bg-base-100 shadow-xl">
             <div className="card-body">
-                <h2 className="card-title">Login</h2>
+                <h2 className="card-title">Sign in</h2>
                 <label className="input input-bordered flex items-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4 opacity-70"><path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" /></svg>
                     <input 
@@ -35,7 +35,7 @@ const Logincomp = () => {
                 <br />
                 <div className="card-actions justify-end">
                     <button onClick={()=> login()} className="btn bg-customBtnGreen rounded-full px-6 py-2 font-semibold hover:bg-green-300 transition-colors shadow-btnShadow">
-                    Log in
+                    Sign in
                     </button>
                 </div>
                 <div>
@@ -52,7 +52,7 @@ const Logincomp = () => {
                             <br />
                             <div role="alert" className="alert alert-success">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                                <span>Login succede. Welcome {userName}</span>
+                                <span>Welcome {userName}</span>
                             </div>
                             <br />
                             <div className="card-actions justify-center">

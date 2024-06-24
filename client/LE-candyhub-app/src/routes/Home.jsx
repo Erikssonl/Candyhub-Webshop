@@ -28,7 +28,7 @@ const Home = () => {
             <img className={styles.homeImg} src={homeImg} alt="" />
           </div>
         </div>
-        <Categorycomp/> 
+        <Categorycomp/>
     </div>
   )
 }

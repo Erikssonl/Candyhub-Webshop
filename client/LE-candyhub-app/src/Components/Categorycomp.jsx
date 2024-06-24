@@ -5,79 +5,39 @@ import styles from '../Styles/CategoryComp-Style.module.css'
 
 const Categorycomp = () => {
   const navigate = useNavigate()
-  const { } = useContext(CandyContext)
+  const { categories, categoryColors, setSelectedCategory } = useContext(CandyContext)
+
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category)
+    navigate('/category-result');
+  }
 
   return (
-    <div className={styles.categoryWrap}>
-      <div className="card lg:card-side bg-base-100 shadow-xl m-4 bg-costomCardPink" >
-        <div className="card-body items-center text-center">
-          <figure className="px-10 pt-10">
-            <img src="./chocolate_bar.png" alt="" className="rounded-xl" />
-          </figure>
-          <h3 className="card-title">Chocolate</h3>
-        </div>
-      </div>
+    <div>
 
-      <div className="card lg:card-side bg-base-100 shadow-xl m-4 bg-costomCardLightGreen" >
-        <div className="card-body items-center text-center">
-          <figure className="px-10 pt-10">
-            <img src="./licorice_twists.png" alt="" className="rounded-xl" />
-          </figure>
-          <h3 className="card-title">Licorice</h3>
-        </div>
+      <div className={styles.h2Wrap}>
+        <h2 className="text-5xl" >Shop by category</h2>
       </div>
-
-      <div className="card lg:card-side bg-base-100 shadow-xl m-4 bg-costomCardLightBlue" >
-        <div className="card-body items-center text-center">
-          <figure className="px-10 pt-10">
-            <img src="./peanut_brittle.png" alt="" className="rounded-xl" />
-          </figure>
-          <h3 className="card-title">Crunchy Candy</h3>
-        </div>
-      </div>
-
-      <div className="card lg:card-side bg-base-100 shadow-xl m-4 bg-costomCardPurpul" >
-        <div className="card-body items-center text-center">
-          <figure className="px-10 pt-10">
-            <img src="./cotton_candy.png" alt="" className="rounded-xl" />
-          </figure>
-          <h3 className="card-title">Soft Candy</h3>
-        </div>
-      </div>
-
-      <div className="card lg:card-side bg-base-100 shadow-xl m-4 bg-costomCardPurpul" >
-        <div className="card-body items-center text-center">
-          <figure className="px-10 pt-10">
-            <img src="./sour_worms.png" alt="" className="rounded-xl" />
-          </figure>
-          <h3 className="card-title">Gummies</h3>
-        </div>
-      </div>
-
-      <div className="card lg:card-side bg-base-100 shadow-xl m-4 bg-costomCardDarkBlue" >
-        <div className="card-body items-center text-center">
-          <figure className="px-10 pt-10">
-            <img src="./maple_nut_fudge.png" alt="" className="rounded-xl" />
-          </figure>
-          <h3 className="card-title">Fudge</h3>
-        </div>
-      </div>
-
-      <div className="card lg:card-side bg-base-100 shadow-xl m-4 bg-costomCardPink" >
-        <div className="card-body items-center text-center">
-          <figure className="px-10 pt-10">
-            <img src="./fruit_drops.png" alt="" className="rounded-xl" />
-          </figure>
-          <h3 className="card-title">Hard Candy</h3>
-        </div>
-      </div>
-
-      <div className="card lg:card-side bg-base-100 shadow-xl m-4 bg-costomCardDarkGreen" >
-        <div className="card-body items-center text-center">
-          <figure className="px-10 pt-10">
-            <img src="./all_candy.png" alt="" className="rounded-xl" />
-          </figure>
-          <h3 className="card-title"> Show All Candy</h3>
+      <div className={styles.categoryWrap}>
+        {categories.map((category, idx) => (
+          <div className={`card lg:card-side bg-base-100 shadow-xl m-4`} 
+            style={{ backgroundColor: categoryColors[category.replace(/\s+/g, '')] }}
+            key={idx} onClick={() => handleCategoryClick(category)}>
+            <div className="card-body items-center text-center">
+              <figure className="px-5 pt-5">
+                <img src={`./${category}.png`} alt={category} className="rounded-xl" />
+              </figure>
+              <h3 className="card-title">{category}</h3>
+            </div>
+          </div>
+        ))}
+        <div className="card lg:card-side bg-base-100 shadow-xl m-4 bg-costomCardDarkGreen" >
+          <div className="card-body items-center text-center">
+            <figure className="px-5 pt-5">
+              <img src="./all_candy.png" alt="" className="rounded-xl" />
+            </figure>
+            <h3 className="card-title"> Show All Candy</h3>
+          </div>
         </div>
       </div>
     </div>

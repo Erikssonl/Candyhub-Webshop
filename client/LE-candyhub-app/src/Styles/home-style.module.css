@@ -1,12 +1,20 @@
 .homeImg{
     width: 150vw;
     height: auto;
+    animation: floating 5s infinite;
+    animation-timing-function: ease-in-out;
     /* box-shadow: 30px 50px 90px 0px rgba(0, 0, 0, 0.25); */
+}
+
+@keyframes floating {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(10px, 20px); }
+    100%   { transform: translate(0, -0px); }    
 }
 
 .homeWrap{
     background: rgba(248, 198, 209, 0.90);
-    box-shadow: -40px -40px 90px 0px rgba(0, 0, 0, 0.10) inset, 40px 40px 90px 0px rgba(0, 0, 0, 0.10) inset;
+    box-shadow: -40px -40px 90px 0px rgba(0, 0, 0, 0.20) inset, 40px 40px 90px 0px rgba(0, 0, 0, 0.20) inset;
     display: flex;
     flex-direction: column;
     align-items: center;

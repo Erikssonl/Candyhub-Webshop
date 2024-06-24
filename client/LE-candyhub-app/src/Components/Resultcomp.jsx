@@ -38,7 +38,7 @@ const Resultcomp = () => {
             <div className={`fixed inset-0 z-50 bg-gray-800 bg-opacity-50 ${modalOpen ? 'block' : 'hidden'}`}></div>
             <div className={styles.searchWrap}>
                 <input 
-                className={styles.input} 
+                className={styles.resultInput} 
                 type="text" 
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}

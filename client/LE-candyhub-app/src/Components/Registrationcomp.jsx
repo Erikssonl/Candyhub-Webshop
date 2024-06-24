@@ -56,7 +56,7 @@ const Registrationcomp = () => {
                             </div>
                             <br />
                             <div className="card-actions justify-center">
-                                <Link className={styles.shopLink} to="/login">Click here to log in!</Link>
+                                <Link className={styles.shopLink} to="/login">Click here to sign in!</Link>
                             </div>
                         </div>
                     ) : null}
