@@ -1,0 +1,30 @@
+.footerWrap{
+    font-size: 1.25rem;
+    display: flex;
+    padding: 8vh 8vw;
+    margin-top: 15vh;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 244px;
+    flex-shrink: 0;
+    background: linear-gradient(0deg, rgba(241, 233, 210, 0.30) 0%, rgba(241, 233, 210, 0.30) 100%), #FFFFF8;
+    box-shadow: -40px 0px 90px 0px rgba(0, 0, 0, 0.15);
+}
+
+.logoWrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoimg{
+    width: 12vw;
+    height: auto;
+    margin-right: auto;
+    padding-right: 2vw;
+}
+
+a{
+    text-decoration: underline;
+}

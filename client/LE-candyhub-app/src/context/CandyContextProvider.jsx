@@ -5,30 +5,80 @@ export const CandyContext = createContext();
 
 const CandyContextProvider = (props) => {
     const [allProducts, setAllProducts] = useState([])
-    const [getByCategory, setGetByCategory] = useState([]);
+    const [getByCategory, setGetByCategory] = useState({});
+    const [selectedCategory, setSelectedCategory] = useState(null);
     const [regUser, setRegUser] = useState('')
     const [regPassword, setRegPassword] = useState('')
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
     const [loginStatus, setLoginStatus] = useState(null)
     const [cart, setCart] = useState([]);
-        
-    const getFromCandyProducts = () => {
-        fetch("http://localhost:3000/products") 
-            .then(response => response.json()) 
-            .then(data => { 
-
-                const filteredCategories = data.filter(item => item.category);
-
-                setAllProducts(data);
-                setGetByCategory(filteredCategories);
-            })
-            .catch((error) => {
-                console.error("Fetching error:", error); 
-                setAllProducts([]);
-                setGetByCategory([]);
-            });
+    const categories = [
+      "Chocolates",
+      "Licorice",
+      "CrunchyCandy",
+      "SoftCandy",
+      "Gummies",
+      "Fudge",
+      "HardCandy"
+    ]
+    const categoryColors = {
+      Chocolates: '#F8C6D1',
+      Licorice: '#A3E4C7',
+      CrunchyCandy: '#A2D2FF',
+      SoftCandy: '#D6BCFA',
+      Gummies: '#D6BCFA',
+      Fudge: '#A4CAEE',
+      HardCandy: '#F8C6D1',
     };
+
+    const getFromCandyProducts = () => {
+      fetch("http://localhost:3000/products")
+          .then(response => response.json())
+          .then(data => {
+              const categoryMap = data.reduce((acc, item) => {
+                  if (item.category) {
+                      acc[item.category] = acc[item.category] || [];
+                      acc[item.category].push(item);
+                  }
+                  return acc;
+              }, {});
+  
+              if (Object.keys(categoryMap).length > 0) {
+                  setAllProducts(data);
+                  setGetByCategory(categoryMap);
+              } else {
+                  setAllProducts([]);
+                  setGetByCategory({});
+              }
+          })
+          .catch((error) => {
+              console.error("Fetching error:", error);
+              setAllProducts([]);
+              setGetByCategory({});
+          });
+    };
+
+        // const getFromCandyProducts = () => {
+    //     fetch("http://localhost:3000/products") 
+    //         .then(response => response.json()) 
+    //         .then(data => { 
+
+    //           const filteredCategories = data.filter(item => item.category);
+    //           if (filteredCategories.length > 0) {
+    //             setAllProducts(data);
+    //             setGetByCategory(filteredCategories);
+    //           } else {
+    //             setAllProducts([]);
+    //             setGetByCategory([]);
+    //           }
+    //         })
+    //         .catch((error) => {
+    //             console.error("Fetching error:", error); 
+    //             setAllProducts([]);
+    //             setGetByCategory([]);
+    //         });
+    // };
 
     useEffect(() => {
         getFromCandyProducts();
@@ -162,7 +212,8 @@ const CandyContextProvider = (props) => {
     <CandyContext.Provider value={{ getByCategory, regUser, regPassword,
      setRegUser, setRegPassword, postToUsers, userName, password, setUserName, setPassword, login, loginStatus,
      handleSearch, searchAttempted, candySearch, setCandySearch, setSearchTerm, searchTerm,
-     cart, addToCart, postToOrders, regStatus, removeFromCart, updateItemQuantityCart}}>
+     cart, addToCart, postToOrders, regStatus, removeFromCart, updateItemQuantityCart, categories, categoryColors,
+     selectedCategory, setSelectedCategory}}>
         {props.children}
     </CandyContext.Provider>
   )

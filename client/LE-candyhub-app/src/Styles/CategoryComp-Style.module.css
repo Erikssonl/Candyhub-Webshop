@@ -1,0 +1,11 @@
+.categoryWrap{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 2%;
+    /* padding: %; */
+    gap: 2%;
+}
+
+.h2Wrap{
+    padding: 5%;
+}

@@ -3,6 +3,7 @@ import './Styles/App.css'
 import Navigation from './Components/Navigation'
 import Switch from './Components/Switch'
 import CandyContextProvider from "./context/CandyContextProvider"
+import Footer from './Components/Footer'
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
       <>
         <Navigation />
         <Switch />
+        <Footer />
       </>
     </CandyContextProvider>
   )
