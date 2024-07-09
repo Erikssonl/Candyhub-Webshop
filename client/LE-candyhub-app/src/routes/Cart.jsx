@@ -38,8 +38,13 @@ const Cart = () => {
         <ul>
           {cart.map((item, idx) => (
             <li className={styles.productList} key={idx}>
-              <p>{item.name}</p>
-              <p>Unit price: {item.price}$</p>
+              {/* <figure className="px-10 pt-10">
+                <img src={item.image_path} alt="" className="rounded-xl" />
+              </figure> */}
+              <div className={styles.itemWrap}>
+                <p>{item.name}</p>
+                <p>Unit price: {item.price}$</p>
+              </div>
               <div className={styles.quantityWrap} >
                 <label>Quantity:</label>
                 <input

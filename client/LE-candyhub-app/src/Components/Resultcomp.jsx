@@ -27,7 +27,7 @@ const Resultcomp = () => {
             <div>
                 {candySearch?.length > 0 ? (
                     <div>
-                        <h2 className={styles.h2Search}>Sökresultat:</h2>
+                        <h2 className={styles.h2Search}>Search result:</h2>
                         <div className={styles.resultWrap}>
                             <div className={styles.listWrap}>
                                 {candySearch.map((candy, idx) => (

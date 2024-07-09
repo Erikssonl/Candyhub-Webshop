@@ -25,20 +25,24 @@
 .productList{
     background-color: #FFFFF8;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     margin: 3vh 0;
+    flex-grow: 2;
     /* border: 1px solid black; */
     border-radius: 15px;
-    padding: 10% 20%;
-    row-gap: 3vh;
+    padding: 5% 3%;
+    gap: 3vw;
     box-shadow: 4px 10px 25px 0px rgba(0, 0, 0, 0.25);
 }
 
 .quantityInput{
-    padding: 0.75rem 1rem;
-    border: none;
+    /* padding: 0.75rem 1rem; */
+    padding: 3% 5%;
+    border: 0.5px solid;
     outline: none;
-    box-shadow: 4px 10px 25px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    /* box-shadow: 4px 10px 25px 0px rgba(0, 0, 0, 0.1); */
 }
 
 .quantityWrap{
@@ -46,4 +50,9 @@
     flex-direction: column;
     margin-bottom: 5vh;
     column-gap: 2vw;
+}
+
+.itemWrap{
+    display: flex;
+    flex-direction: column;
 }
