@@ -12,9 +12,13 @@ const Categorycomp = () => {
     navigate('/category-result');
   }
 
+  const handleShowAllCandy = () => {
+    setSelectedCategory(null); 
+    navigate('/category-result');  
+  };
+
   return (
     <div>
-
       <div className={styles.h2Wrap}>
         <h2 className="text-5xl" >Shop by category</h2>
       </div>
@@ -31,7 +35,7 @@ const Categorycomp = () => {
             </div>
           </div>
         ))}
-        <div className="card lg:card-side bg-base-100 shadow-xl m-4 bg-costomCardDarkGreen" >
+        <div className="card lg:card-side bg-base-100 shadow-xl m-4 bg-costomCardDarkGreen" onClick={handleShowAllCandy}>
           <div className="card-body items-center text-center">
             <figure className="px-5 pt-5">
               <img src="./all_candy.png" alt="" className="rounded-xl" />
