@@ -1,15 +1,17 @@
 const { json } = require('body-parser');
 const cors = require('cors');
 const express = require('express');
+const dotenv = require("dotenv");
+dotenv.config();
 const mysql = require('mysql');
 
 
 // Create a MySQL connection
 const connection = mysql.createPool({
-  host: 'localhost',
-  user: 'root',
-  password: 'YiGdf?ysc?F$4HEy',
-  database: 'candy_hub_db',
+  host: process.env.host,
+  user: process.env.user,
+  password: process.env.password,
+  database: process.env.database,
   port: 3006
 });
 
