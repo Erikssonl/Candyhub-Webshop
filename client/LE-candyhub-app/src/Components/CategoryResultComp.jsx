@@ -4,19 +4,24 @@ import styles from '../Styles/CategoryResult-style.module.css'
 
 const CategoryResultComp = () => {
     const { getByCategory, selectedCategory, selectedCandy,
-        modalOpen, quantity, openModal, closeModal, hadndleQuantity, handleAddToCart 
+        modalOpen, quantity, openModal, closeModal, hadndleQuantity, handleAddToCart, allProducts, handleBackToHomeClick 
     } = useContext(CandyContext);
 
-    const products = getByCategory[selectedCategory] || [];
+    const products = selectedCategory ? getByCategory[selectedCategory] : allProducts;
 
     useEffect (() => {
         window.scrollTo(0, 0);
-    }, []);
+    }, [selectedCategory]);
 
     return (
         <div>
+            
             <div className={`fixed inset-0 z-50 bg-gray-800 bg-opacity-50 ${modalOpen ? 'block' : 'hidden'}`}></div>
-            <h2 className={styles.h2Category}>{selectedCategory}</h2>
+            <button onClick={() => handleBackToHomeClick()} 
+                className="btn bg-customBtnGreen rounded-full px-6 py-2 ml-40 mt-5 font-semibold hover:bg-green-300 transition-colors shadow-btnShadow " >
+                    &#8592; Back
+            </button>
+            <h2 className={styles.h2Category}>{selectedCategory ? selectedCategory : 'All products'}</h2>
             <div className={styles.resultWrap}>
                 <div className={styles.listWrap}>
                     {products.map((candy, idx) => (

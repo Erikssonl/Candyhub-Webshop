@@ -1,4 +1,5 @@
 import { useState, useEffect, createContext, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 
 export const CandyContext = createContext();
@@ -34,6 +35,8 @@ const CandyContextProvider = (props) => {
     const [selectedCandy, setSelectedCandy] = useState(null);
     const [modalOpen, setModalOpen] = useState(false);
     const [quantity, setQuantity] = useState(1);
+    const navigate = useNavigate()
+    const [cartCount, setCartCount] = useState(0);
 
     const getFromCandyProducts = () => {
       fetch("http://localhost:3000/products")
@@ -61,27 +64,6 @@ const CandyContextProvider = (props) => {
               setGetByCategory({});
           });
     };
-
-        // const getFromCandyProducts = () => {
-    //     fetch("http://localhost:3000/products") 
-    //         .then(response => response.json()) 
-    //         .then(data => { 
-
-    //           const filteredCategories = data.filter(item => item.category);
-    //           if (filteredCategories.length > 0) {
-    //             setAllProducts(data);
-    //             setGetByCategory(filteredCategories);
-    //           } else {
-    //             setAllProducts([]);
-    //             setGetByCategory([]);
-    //           }
-    //         })
-    //         .catch((error) => {
-    //             console.error("Fetching error:", error); 
-    //             setAllProducts([]);
-    //             setGetByCategory([]);
-    //         });
-    // };
 
     useEffect(() => {
         getFromCandyProducts();
@@ -163,7 +145,12 @@ const CandyContextProvider = (props) => {
     }
 
     const addToCart = (candy) => {
-      setCart([...cart, candy]);
+      const existingItem = cart.find(item => item.id === candy.id);
+      if (existingItem) {
+          setCart(cart.map(item => item.id === candy.id ? { ...item, quantity: item.quantity + candy.quantity } : item));
+      } else {
+          setCart([...cart, candy]);
+      }
     };
 
     const postToOrders = () => {
@@ -232,6 +219,17 @@ const CandyContextProvider = (props) => {
       }
     }
 
+    const handleBackToHomeClick = () => {
+      navigate('/');
+    }
+
+    useEffect(() => {
+      const totalCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+      setCartCount(totalCount);
+    }, [cart])
+
+
+
 
   return (
     <CandyContext.Provider value={{ getByCategory, regUser, regPassword,
@@ -239,7 +237,7 @@ const CandyContextProvider = (props) => {
      handleSearch, searchAttempted, candySearch, setCandySearch, setSearchTerm, searchTerm,
      cart, addToCart, postToOrders, regStatus, removeFromCart, updateItemQuantityCart, categories, categoryColors,
      selectedCategory, setSelectedCategory, selectedCandy, setSelectedCandy, modalOpen, setModalOpen, quantity, setQuantity,
-     openModal, closeModal, hadndleQuantity, handleAddToCart}}>
+     openModal, closeModal, hadndleQuantity, handleAddToCart, allProducts, handleBackToHomeClick, cartCount}}>
         {props.children}
     </CandyContext.Provider>
   )

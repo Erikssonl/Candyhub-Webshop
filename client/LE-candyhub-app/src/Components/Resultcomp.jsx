@@ -1,17 +1,25 @@
-import { useContext, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { CandyContext } from '../context/CandyContextProvider';
 import styles from '../Styles/Searchcomp-style.module.css'
 
 const Resultcomp = () => {
     const { candySearch, setSearchTerm, handleSearch, searchAttempted, searchTerm, selectedCandy,
-        modalOpen, quantity, openModal, closeModal, hadndleQuantity, handleAddToCart
+        modalOpen, quantity, openModal, closeModal, hadndleQuantity, handleAddToCart, handleBackToHomeClick
     } = useContext(CandyContext)
 
     console.log(candySearch)
 
+    useEffect (() => {
+        window.scrollTo(0, 0);
+    }, [candySearch]);
+
     return (
         <div>
             <div className={`fixed inset-0 z-50 bg-gray-800 bg-opacity-50 ${modalOpen ? 'block' : 'hidden'}`}></div>
+            <button onClick={() => handleBackToHomeClick()} 
+                className="btn bg-customBtnGreen rounded-full px-6 py-2 ml-40 mt-5 font-semibold hover:bg-green-300 transition-colors shadow-btnShadow " >
+                    &#8592; Back
+            </button>
             <div className={styles.searchWrap}>
                 <input 
                 className={styles.resultInput} 
@@ -27,7 +35,7 @@ const Resultcomp = () => {
             <div>
                 {candySearch?.length > 0 ? (
                     <div>
-                        <h2 className={styles.h2Search}>Sökresultat:</h2>
+                        <h2 className={styles.h2Search}>Search result:</h2>
                         <div className={styles.resultWrap}>
                             <div className={styles.listWrap}>
                                 {candySearch.map((candy, idx) => (
