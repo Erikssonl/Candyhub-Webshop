@@ -1,6 +1,6 @@
 import { useContext, useEffect } from 'react';
 import { CandyContext } from '../context/CandyContextProvider';
-import styles from '../Styles/Searchcomp-style.module.css'
+import styles from '../Styles/SearchComp-style.module.css'
 
 const ResultComp = () => {
     const { candySearch, setSearchTerm, handleSearch, searchAttempted, searchTerm, selectedCandy,

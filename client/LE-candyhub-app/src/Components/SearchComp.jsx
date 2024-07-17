@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { CandyContext } from '../context/CandyContextProvider';
-import styles from '../Styles/Searchcomp-style.module.css'
+import styles from '../Styles/SearchComp-style.module.css'
 
 const SearchComp = () => {
     const navigate = useNavigate()
