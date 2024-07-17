@@ -12,7 +12,7 @@ const connection = mysql.createPool({
   user: process.env.user,
   password: process.env.password,
   database: process.env.database,
-  port: 3006
+  port: 3306
 });
 
 const app = express();
