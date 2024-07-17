@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react';
 import { CandyContext } from '../context/CandyContextProvider';
 import styles from '../Styles/Searchcomp-style.module.css'
 
-const Resultcomp = () => {
+const ResultComp = () => {
     const { candySearch, setSearchTerm, handleSearch, searchAttempted, searchTerm, selectedCandy,
         modalOpen, quantity, openModal, closeModal, hadndleQuantity, handleAddToCart, handleBackToHomeClick
     } = useContext(CandyContext)
@@ -94,4 +94,4 @@ const Resultcomp = () => {
         </div>
       )
     }
-    export default Resultcomp;
+    export default ResultComp;

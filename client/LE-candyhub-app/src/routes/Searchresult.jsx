@@ -1,9 +1,9 @@
-import Resultcomp from '../Components/Resultcomp';
+import ResultComp from '../Components/ResultComp';
 
 const Searchresult = () => {
   return (
     <div>
-        <Resultcomp/>
+        <ResultComp/>
     </div>
   )
 }
