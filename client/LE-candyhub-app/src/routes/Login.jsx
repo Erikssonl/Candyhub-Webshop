@@ -1,4 +1,4 @@
-import Logincomp from "../Components/Logincomp"
+import LoginComp from "../Components/LoginComp"
 import CandyContextProvider from "../context/CandyContextProvider"
 
 const Login = () => {
@@ -6,7 +6,7 @@ const Login = () => {
     <div>
       <div>
       <CandyContextProvider>
-        <Logincomp /> 
+        <LoginComp /> 
       </CandyContextProvider>
       </div>
     </div>

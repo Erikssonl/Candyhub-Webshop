@@ -3,7 +3,7 @@ import { CandyContext } from '../context/CandyContextProvider';
 import { Link } from "react-router-dom"
 import styles from '../Styles/Logreg-style.module.css'
 
-const Logincomp = () => {
+const LoginComp = () => {
     const { userName, password, setUserName, setPassword, login, loginStatus  } = useContext(CandyContext)
 
   return (
@@ -70,4 +70,4 @@ const Logincomp = () => {
     </div>
   )
 }
-export default Logincomp
+export default LoginComp
