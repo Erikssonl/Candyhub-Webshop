@@ -1,4 +1,4 @@
-import Registrationcomp from "../Components/Registrationcomp"
+import RegistrationComp from "../Components/RegistrationComp"
 import CandyContextProvider from "../context/CandyContextProvider"
 
 const Registration = () => {
@@ -6,7 +6,7 @@ const Registration = () => {
     <div>
         <div>
         <CandyContextProvider>
-            <Registrationcomp />
+            <RegistrationComp />
         </CandyContextProvider>
         </div>
     </div>
