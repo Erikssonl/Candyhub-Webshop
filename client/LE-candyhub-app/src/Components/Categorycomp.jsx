@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { CandyContext } from '../context/CandyContextProvider';
 import styles from '../Styles/CategoryComp-Style.module.css'
 
-const Categorycomp = () => {
+const CategoryComp = () => {
   const navigate = useNavigate()
   const { categories, categoryColors, setSelectedCategory } = useContext(CandyContext)
 
@@ -47,4 +47,4 @@ const Categorycomp = () => {
     </div>
   )
 }
-export default Categorycomp
+export default CategoryComp
