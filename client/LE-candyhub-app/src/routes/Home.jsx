@@ -1,7 +1,7 @@
 import { useEffect, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
 import CategoryComp from "../Components/CategoryComp"
-import Searchcomp from "../Components/Searchcomp"
+import SearchComp from "../Components/SearchComp"
 import { CandyContext } from '../context/CandyContextProvider';
 import homeImg from '../assets/glasjar_2.png'
 import styles from '../Styles/home-style.module.css'
@@ -23,7 +23,7 @@ const Home = () => {
           <h1 className="text-6xl">Welcome to CandyHub!</h1>
           <div className={styles.homeContent}>
             <div className={styles.searchCompWrap}>
-              <Searchcomp/>
+              <SearchComp/>
             </div>
             <img className={styles.homeImg} src={homeImg} alt="" />
           </div>

@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { CandyContext } from '../context/CandyContextProvider';
 import styles from '../Styles/Searchcomp-style.module.css'
 
-const Searchcomp = () => {
+const SearchComp = () => {
     const navigate = useNavigate()
     const { setSearchTerm, handleSearch, searchTerm } = useContext(CandyContext)
 
@@ -32,4 +32,4 @@ const Searchcomp = () => {
 
   )
 }
-export default Searchcomp
+export default SearchComp
