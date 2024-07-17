@@ -1,10 +1,10 @@
 import ResultComp from '../Components/ResultComp';
 
-const Searchresult = () => {
+const SearchResult = () => {
   return (
     <div>
         <ResultComp/>
     </div>
   )
 }
-export default Searchresult
+export default SearchResult
