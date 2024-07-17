@@ -1,6 +1,6 @@
 import { useEffect, useContext } from 'react';
 import { useLocation } from 'react-router-dom';
-import Categorycomp from "../Components/Categorycomp"
+import CategoryComp from "../Components/CategoryComp"
 import Searchcomp from "../Components/Searchcomp"
 import { CandyContext } from '../context/CandyContextProvider';
 import homeImg from '../assets/glasjar_2.png'
@@ -28,7 +28,7 @@ const Home = () => {
             <img className={styles.homeImg} src={homeImg} alt="" />
           </div>
         </div>
-        <Categorycomp/>
+        <CategoryComp/>
     </div>
   )
 }
