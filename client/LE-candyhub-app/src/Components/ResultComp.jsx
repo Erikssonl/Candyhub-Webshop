@@ -56,7 +56,7 @@ const ResultComp = () => {
                         </div>
                     </div>
                 ) : ( 
-                    searchAttempted && <p>No candy found</p>
+                    searchAttempted && <h2 className={styles.h2Search} >No candy found, try to search for something else</h2>
                 )}
 
                 {selectedCandy && (

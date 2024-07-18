@@ -40,40 +40,51 @@ const Cart = () => {
       <div className={styles.cartContentWrap}>
         <div className={styles.cartWrap}>
           <h2 className={styles.h2Cart}>Candy Cart</h2>
-          <div className={styles.productListWrap}>
-            <ul>
-              {cart.map((item, idx) => (
-                <li className={styles.productList} key={idx}>
-                  <figure className="px-5 pt-5 aspect-w-16 aspect-h-9">
-                    <img src={item.image_path} alt="" className="rounded-xl w-full sm:w-48 md:w-32 lg:w-24 xl:w-20 " />
-                  </figure>
-                  <div className={styles.itemWrap}>
-                    <p>{item.name}</p>
-                    <p>Unit price: {item.price}$</p>
-                  </div>
-                  <div className={styles.quantityWrap} >
-                    <label>Quantity:</label>
-                    <input
-                      className={styles.quantityInput}
-                      type="number"
-                      id={`quantity-${idx}`}
-                      name={`quantity-${idx}`}
-                      min="1"
-                      value={item.quantity}
-                      onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))} 
-                    />
-                  </div>
-                  <button className="btn btn-error shadow-btnShadow" onClick={() => handleRemoveFromCart(item.id)}>Remove product</button>
-                </li>
-              ))}
-            </ul>
+          <div>
+            {cart && cart.length > 0 ? (
+              <div>
+                <div className={styles.productListWrap}>
+                  <ul>
+                    {cart.map((item, idx) => (
+                      <li className={styles.productList} key={idx}>
+                        <figure className="px-5 pt-5 aspect-w-16 aspect-h-9">
+                          <img src={item.image_path} alt="" className="rounded-xl w-full sm:w-48 md:w-32 lg:w-24 xl:w-20 " />
+                        </figure>
+                        <div className={styles.itemWrap}>
+                          <p>{item.name}</p>
+                          <p>Unit price: {item.price}$</p>
+                        </div>
+                        <div className={styles.quantityWrap} >
+                          <label>Quantity:</label>
+                          <input
+                            className={styles.quantityInput}
+                            type="number"
+                            id={`quantity-${idx}`}
+                            name={`quantity-${idx}`}
+                            min="1"
+                            value={item.quantity}
+                            onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))} 
+                          />
+                        </div>
+                        <button className="btn btn-error shadow-btnShadow" onClick={() => handleRemoveFromCart(item.id)}>Remove product</button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="flex justify-center w-full mt-10">
+                  <button
+                  onClick={handlePlaceOrder}
+                  className="btn bg-customBtnGreen rounded-full px-6 py-2 font-semibold hover:bg-green-300 transition-colors shadow-btnShadow self-center ">
+                    Place order
+                  </button>
+                  {orderMessage && <p>{orderMessage}</p>}
+                </div>
+              </div>
+            ) : ( 
+                <h2>The cart is empty</h2>
+            )}
           </div>
-          <button
-          onClick={handlePlaceOrder}
-          className="btn bg-customBtnGreen rounded-full px-6 py-2 font-semibold hover:bg-green-300 transition-colors shadow-btnShadow ">
-            Place order
-          </button>
-          {orderMessage && <p>{orderMessage}</p>}
+
         </div>
       </div>
     </div>
