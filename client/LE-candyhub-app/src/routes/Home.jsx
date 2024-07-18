@@ -20,7 +20,7 @@ const Home = () => {
   return (
     <div>
         <div className={styles.homeWrap}>
-          <h1 className="text-6xl">Welcome to CandyHub!</h1>
+          <h1 className="text-xl sm:text-3xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl ">Welcome to CandyHub!</h1>
           <div className={styles.homeContent}>
             <div className={styles.searchCompWrap}>
               <SearchComp/>

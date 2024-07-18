@@ -9,3 +9,10 @@
 .h2Wrap{
     padding: 5%;
 }
+
+@media only screen and (max-width: 600px) {
+    .categoryWrap{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

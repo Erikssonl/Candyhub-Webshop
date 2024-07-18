@@ -35,3 +35,27 @@
     align-self: center;
     padding-bottom: 20vh;
 }
+
+@media only screen and (max-width: 600px) {
+    .homeContent{
+        width: 100%;
+        gap: 20px;
+    }
+
+    .homeImg{
+        width: 30vw;
+        height: auto;
+    }
+
+    .homeWrap{
+        gap: 4vh;
+    }
+
+}
+
+@media only screen and (min-width: 992px) {
+    .homeImg{
+        width: 90vw;
+        height: auto;
+    }
+}
