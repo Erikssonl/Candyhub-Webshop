@@ -46,27 +46,33 @@ const Cart = () => {
                 <div className={styles.productListWrap}>
                   <ul>
                     {cart.map((item, idx) => (
-                      <li className={styles.productList} key={idx}>
-                        <figure className="px-5 pt-5 aspect-w-16 aspect-h-9">
-                          <img src={item.image_path} alt="" className="rounded-xl w-full sm:w-48 md:w-32 lg:w-24 xl:w-20 " />
-                        </figure>
-                        <div className={styles.itemWrap}>
-                          <p>{item.name}</p>
-                          <p>Unit price: {item.price}$</p>
+                      <li className={`${styles.productList} flex flex-col md:flex-row items-center gap-4 p-3 bg-white rounded-lg shadow-md`} key={idx}>
+                        <div className="flex flex-row md:flex-1 items-center gap-4">
+                          <figure className="w-16 md:w-32">
+                            <img src={item.image_path} alt="" className="rounded-xl" />
+                          </figure>
+                          <div>
+                            <p className="font-bold">{item.name}</p>
+                            <p>Unit price: ${item.price}</p>
+                          </div>
                         </div>
-                        <div className={styles.quantityWrap} >
-                          <label>Quantity:</label>
-                          <input
-                            className={styles.quantityInput}
-                            type="number"
-                            id={`quantity-${idx}`}
-                            name={`quantity-${idx}`}
-                            min="1"
-                            value={item.quantity}
-                            onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))} 
-                          />
+                        <div className="flex flex-col md:flex-row md:flex-1 items-center gap-2 md:justify-between mt-2 md:mt-0">
+                          <div className="flex flex-row items-center gap-2">
+                            <label htmlFor={`quantity-${idx}`}>Quantity:</label>
+                            <input
+                              className="w-16 p-1 border rounded"
+                              type="number"
+                              id={`quantity-${idx}`}
+                              name={`quantity-${idx}`}
+                              min="1"
+                              value={item.quantity}
+                              onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}
+                            />
+                          </div>
+                          <button className="btn btn-error shadow-btnShadow" onClick={() => handleRemoveFromCart(item.id)}>
+                            Remove product
+                          </button>
                         </div>
-                        <button className="btn btn-error shadow-btnShadow" onClick={() => handleRemoveFromCart(item.id)}>Remove product</button>
                       </li>
                     ))}
                   </ul>
