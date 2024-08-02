@@ -8,7 +8,7 @@ const LoginComp = () => {
 
   return (
     <div className={styles.loginWrap}>
-        <div className="card w-96 bg-base-100 shadow-xl">
+        <div className="card max-w-full bg-base-100 shadow-xl">
             <div className="card-body">
                 <h2 className="card-title">Sign in</h2>
                 <label className="input input-bordered flex items-center gap-2">
@@ -19,7 +19,7 @@ const LoginComp = () => {
                     placeholder="Enter username"
                     required
                     value={userName}
-                    onChange={(e)=> setUserName(e.target.value)}/>
+                    onChange={(e) => setUserName(e.target.value)}/>
                 </label>
                 <br />
                 <label className="input input-bordered flex items-center gap-2">
@@ -30,11 +30,11 @@ const LoginComp = () => {
                     placeholder="Enter password" 
                     required
                     value={password}
-                    onChange={(e)=> setPassword(e.target.value)}/>
+                    onChange={(e) => setPassword(e.target.value)}/>
                 </label>
                 <br />
                 <div className="card-actions justify-end">
-                    <button onClick={()=> login()} className="btn bg-customBtnGreen rounded-full px-6 py-2 font-semibold hover:bg-green-300 transition-colors shadow-btnShadow">
+                    <button onClick={() => login()} className="btn bg-customBtnGreen rounded-full px-6 py-2 font-semibold hover:bg-green-300 transition-colors shadow-btnShadow">
                     Sign in
                     </button>
                 </div>

@@ -17,8 +17,8 @@ const ResultComp = () => {
         <div>
             <div className={`fixed inset-0 z-50 bg-gray-800 bg-opacity-50 ${modalOpen ? 'block' : 'hidden'}`}></div>
             <button onClick={() => handleBackToHomeClick()} 
-                className="btn bg-customBtnGreen rounded-full px-6 py-2 ml-40 mt-5 font-semibold hover:bg-green-300 transition-colors shadow-btnShadow " >
-                    &#8592; Back
+                className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-customBtnGreen rounded-full px-6 py-2 ml-10 sm:ml-20 md:ml-30 lg:ml-40 mt-5 font-semibold hover:bg-green-300 transition-colors shadow-btnShadow">
+                &#8592; Back
             </button>
             <div className={styles.searchWrap}>
                 <input 
@@ -28,7 +28,7 @@ const ResultComp = () => {
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="What is your favorite candy?" />
                 <button onClick={()=> handleSearch(searchTerm)} 
-                className="btn bg-customBtnGreen rounded-full px-6 py-2 font-semibold hover:bg-green-300 transition-colors shadow-btnShadow " >
+                className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-customBtnGreen rounded-full px-6 py-2 font-semibold hover:bg-green-300 transition-colors shadow-btnShadow " >
                     Search
                 </button>
             </div>
@@ -39,7 +39,7 @@ const ResultComp = () => {
                         <div className={styles.resultWrap}>
                             <div className={styles.listWrap}>
                                 {candySearch.map((candy, idx) => (
-                                    <div className="card w-96 bg-base-100 shadow-xl m-4" key={idx} onClick={() => openModal(candy)} >
+                                    <div className="card lg:card-side bg-base-100 shadow-xl m-4" key={idx} onClick={() => openModal(candy)} >
                                         <div className="card-body">
                                             <figure className="px-10 pt-10">
                                                 <img src={candy.image_path} alt="" className="rounded-xl" />
@@ -95,3 +95,5 @@ const ResultComp = () => {
       )
     }
     export default ResultComp;
+
+    // card w-96 bg-base-100 shadow-xl m-4
