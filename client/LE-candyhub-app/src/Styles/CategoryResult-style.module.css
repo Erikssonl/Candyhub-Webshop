@@ -41,3 +41,23 @@
     }
 
 }
+
+@media only screen and (min-width: 600px) {
+    .listWrap{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .h2Category{
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .listWrap{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .h2Category{
+        font-size: 1.7rem;
+    }
+}

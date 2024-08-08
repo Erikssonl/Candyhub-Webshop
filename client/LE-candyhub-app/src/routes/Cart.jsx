@@ -33,10 +33,10 @@ const Cart = () => {
 
   return (
     <div>
-      <button onClick={() => handleBackToHomeClick()} 
-        className="btn bg-customBtnGreen rounded-full px-6 py-2 ml-40 mt-5 font-semibold hover:bg-green-300 transition-colors shadow-btnShadow " >
-           &#8592; Back
-      </button>
+        <button onClick={() => handleBackToHomeClick()} 
+            className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg bg-customBtnGreen rounded-full px-6 py-2 ml-10 sm:ml-20 md:ml-30 lg:ml-40 mt-5 font-semibold hover:bg-green-300 transition-colors shadow-btnShadow">
+            &#8592; Back
+        </button>
       <div className={styles.cartContentWrap}>
         <div className={styles.cartWrap}>
           <h2 className={styles.h2Cart}>Candy Cart</h2>
@@ -44,9 +44,9 @@ const Cart = () => {
             {cart && cart.length > 0 ? (
               <div>
                 <div className={styles.productListWrap}>
-                  <ul>
+                  <ul className="w-full">
                     {cart.map((item, idx) => (
-                      <li className={`${styles.productList} flex flex-col md:flex-row items-center gap-4 p-3 bg-white rounded-lg shadow-md`} key={idx}>
+                      <li className={styles.productList} key={idx}>
                         <div className="flex flex-row md:flex-1 items-center gap-4">
                           <figure className="w-16 md:w-32">
                             <img src={item.image_path} alt="" className="rounded-xl" />
@@ -69,7 +69,7 @@ const Cart = () => {
                               onChange={(e) => handleQuantityChange(item.id, parseInt(e.target.value))}
                             />
                           </div>
-                          <button className="btn btn-error shadow-btnShadow" onClick={() => handleRemoveFromCart(item.id)}>
+                          <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg btn-error shadow-btnShadow" onClick={() => handleRemoveFromCart(item.id)}>
                             Remove product
                           </button>
                         </div>

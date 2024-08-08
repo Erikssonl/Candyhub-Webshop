@@ -41,14 +41,36 @@
         width: 100%;
         gap: 20px;
     }
-
     .homeImg{
         width: 30vw;
         height: auto;
     }
-
     .homeWrap{
         gap: 4vh;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .homeContent{
+        width: 100%;
+        gap: 20px;
+    }
+    .homeImg{
+        width: 30vw;
+        height: auto;
+    }
+    .homeWrap{
+        gap: 4vh;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .homeImg{
+        width: 35vw;
+        height: auto;
+    }
+    .homeWrap{
+        gap: 6vh;
     }
 
 }

@@ -34,3 +34,19 @@ p a{
         gap: 80px;
     }
 }
+
+@media only screen and (min-width: 600px) {
+    .footerWrap{
+        font-size: 0.938rem;
+        gap: 80px;
+    }
+    
+}
+
+@media only screen and (min-width: 768px) {
+    .footerWrap{
+        font-size: 1.063rem;
+        gap: 100px;
+    }
+
+}
