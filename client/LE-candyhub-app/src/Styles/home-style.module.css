@@ -29,10 +29,10 @@
     /* padding: 120px 0px; */
     align-items: center;
     gap: 50px;
+    justify-content: space-around;
 }
 
 .searchCompWrap{
-    align-self: center;
     padding-bottom: 20vh;
 }
 
@@ -48,6 +48,9 @@
     .homeWrap{
         gap: 4vh;
     }
+    .searchCompWrap{
+        padding-bottom: 9vh;
+    }
 }
 
 @media only screen and (min-width: 600px) {
@@ -56,15 +59,22 @@
         gap: 20px;
     }
     .homeImg{
-        width: 30vw;
+        width: 35vw;
         height: auto;
     }
     .homeWrap{
         gap: 4vh;
     }
+    .searchCompWrap{
+        padding-bottom: 11vh;
+    }
 }
 
 @media only screen and (min-width: 768px) {
+    .homeContent{
+        width: 100%;
+        gap: 40px;
+    }
     .homeImg{
         width: 35vw;
         height: auto;
@@ -75,9 +85,30 @@
 
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 992px) and (max-width: 1279px) {
+    .homeContent{
+        width: 100%;
+        gap: 40px;
+    }
     .homeImg{
         width: 90vw;
         height: auto;
+    }
+    .homeWrap{
+        gap: 8vh;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .homeContent {
+        width: 1280px;
+        gap: 50px;
+    }
+    .homeImg {
+        width: 150vw;
+        height: auto;
+    }
+    .homeWrap{
+        gap: 10vh;
     }
 }

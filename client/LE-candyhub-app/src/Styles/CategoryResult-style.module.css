@@ -12,7 +12,6 @@
 
 .listWrap{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     margin: 20px;
     padding: 10px;
 }
@@ -33,7 +32,6 @@
 
 @media only screen and (max-width: 600px) {
     .listWrap{
-        display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
     .h2Category{
@@ -44,7 +42,6 @@
 
 @media only screen and (min-width: 600px) {
     .listWrap{
-        display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
     .h2Category{
@@ -54,10 +51,27 @@
 
 @media only screen and (min-width: 768px) {
     .listWrap{
-        display: grid;
         grid-template-columns: repeat(3, 1fr);
     }
     .h2Category{
         font-size: 1.7rem;
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1279px) {
+    .listWrap{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .h2Category{
+        font-size: 1.8rem;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .listWrap{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .h2Category{
+        font-size: 2rem;
     }
 }

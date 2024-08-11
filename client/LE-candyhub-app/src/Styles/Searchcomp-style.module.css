@@ -1,12 +1,10 @@
 .searchWrap{
     display: flex;
-    padding: 8vh 8vw;
-    gap: 2vw;
     align-items: center;
+    /* justify-content: flex-start; */
 }
+
 .input{
-    width: 23rem;
-    padding: 5% 6%;
     border-radius: 9999px;
     border: none;
     outline: none;
@@ -14,8 +12,6 @@
 }
 
 .resultInput{
-    width: 23rem;
-    padding: 1% 3%;
     border-radius: 9999px;
     border: none;
     outline: none;
@@ -30,14 +26,8 @@
 
 .listWrap{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     margin: 20px;
     padding: 10px;
-}
-
-.h2Search{
-    font-size: 2rem;
-    padding-left: 10vw;
 }
 
 .quantityWrap{
@@ -63,7 +53,6 @@
     .searchWrap{
         padding: 3vh 3vw;
         gap: 0.5vw;
-
     }
     .input{
         width: 14rem;
@@ -80,7 +69,6 @@
         padding-left: 5vw;
     }
     .listWrap{
-        display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -90,24 +78,22 @@
     .searchWrap{
         padding: 3vh 3vw;
         gap: 0.5vw;
-
     }
     .input{
-        width: 14rem;
+        width: 16rem;
         padding: 1% 3%;
-        font-size: 12px;
+        font-size: 14px;
     }
     .resultInput{
-        width: 14rem;
+        width: 16rem;
         padding: 1% 3%;
-        font-size: 12px;
+        font-size: 14px;
     }
     .h2Search{
         font-size: 1.5rem;
         padding-left: 5vw;
     }
     .listWrap{
-        display: grid;
         grid-template-columns: repeat(2, 1fr);
     }
     
@@ -117,7 +103,6 @@
     .searchWrap{
         padding: 5vh 5vw;
         gap: 0.9vw;
-
     }
     .input{
         width: 18rem;
@@ -134,8 +119,55 @@
         padding-left: 7vw;
     }
     .listWrap{
-        display: grid;
         grid-template-columns: repeat(3, 1fr);
     }
 
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1279px) {
+    .searchWrap{
+        padding: 6vh 6vw;
+        gap: 1vw;
+    }
+    .input{
+        width: 20rem;
+        padding: 1% 3%;
+        font-size: 18px;
+    }
+    .resultInput{
+        width: 20rem;
+        padding: 1% 3%;
+        font-size: 18px;
+    }
+    .h2Search{
+        font-size: 1.8rem;
+        padding-left: 6vw;
+    }
+    .listWrap{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .searchWrap{
+        padding: 8vh 6vw;
+        gap: 2vw;
+    }
+    .input{
+        width: 23rem;
+        padding: 5% 6%;
+        font-size: 20px;
+    }
+    .resultInput{
+        width: 23rem;
+        padding: 2% 4%;
+        font-size: 20px;
+    }
+    .h2Search{
+        font-size: 2rem;
+        padding-left: 7vw;
+    }
+    .listWrap{
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
