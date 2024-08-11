@@ -12,7 +12,6 @@
 
 .listWrap{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     margin: 20px;
     padding: 10px;
 }
@@ -28,4 +27,50 @@
     border: none;
     outline: none;
     box-shadow: 4px 10px 25px 0px rgba(0, 0, 0, 0.1);
+}
+
+
+@media only screen and (max-width: 600px) {
+    .listWrap{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .h2Category{
+        font-size: 1.2rem;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .listWrap{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .h2Category{
+        font-size: 1.5rem;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .listWrap{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .h2Category{
+        font-size: 1.7rem;
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1279px) {
+    .listWrap{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .h2Category{
+        font-size: 1.8rem;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .listWrap{
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .h2Category{
+        font-size: 2rem;
+    }
 }

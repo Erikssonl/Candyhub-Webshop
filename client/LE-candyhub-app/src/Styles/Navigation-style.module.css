@@ -32,7 +32,6 @@
 .cart{
     text-decoration: none;
     color: #000;
-    font-size: 20px;
 }
 
 .cart{
@@ -40,4 +39,44 @@
     align-items: center;
     justify-content: center;
     margin-left: auto;
+}
+
+@media only screen and (max-width: 600px) {
+    .home,
+    .login,
+    .cart{
+        font-size: 0.813rem;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .home,
+    .login,
+    .cart{
+        font-size: 0.938rem;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .home,
+    .login,
+    .cart{
+        font-size: 1.063rem;
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1279px) {
+    .home,
+    .login,
+    .cart{
+        font-size: 1.156rem;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .home,
+    .login,
+    .cart{
+        font-size: 1.25rem;
+    }
 }

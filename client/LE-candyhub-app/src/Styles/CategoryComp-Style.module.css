@@ -1,11 +1,39 @@
 .categoryWrap{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
     margin: 2%;
-    /* padding: %; */
     gap: 2%;
 }
 
 .h2Wrap{
     padding: 5%;
+}
+
+@media only screen and (max-width: 600px) {
+    .categoryWrap{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .categoryWrap{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .categoryWrap{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1279px) {
+    .categoryWrap{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .categoryWrap{
+        grid-template-columns: repeat(4, 1fr);
+    }
 }

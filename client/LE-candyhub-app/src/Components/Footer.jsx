@@ -8,8 +8,9 @@ function Footer() {
             for a school asignment!
         </p>
         <div className={styles.logoWrap}>
-            <p>Created by Louise Eriksson</p>
-            {/* <img className={styles.logoimg} src={logo} alt="" /> */}
+            <p>Created by:</p>
+            <p>Louise Eriksson</p>
+            <img className={styles.logoimg} src={logo} alt="" />
         </div>
         <div>
             <p>Go to my portfolio to see <br /> 

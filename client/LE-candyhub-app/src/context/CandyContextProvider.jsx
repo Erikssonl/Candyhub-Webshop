@@ -228,9 +228,6 @@ const CandyContextProvider = (props) => {
       setCartCount(totalCount);
     }, [cart])
 
-
-
-
   return (
     <CandyContext.Provider value={{ getByCategory, regUser, regPassword,
      setRegUser, setRegPassword, postToUsers, userName, password, setUserName, setPassword, login, loginStatus,

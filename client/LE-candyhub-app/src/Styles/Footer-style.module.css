@@ -1,12 +1,9 @@
 .footerWrap{
-    font-size: 1.25rem;
     display: flex;
     padding: 8vh 8vw;
     margin-top: 15vh;
     justify-content: center;
     align-items: flex-start;
-    gap: 244px;
-    flex-shrink: 0;
     background: linear-gradient(0deg, rgba(241, 233, 210, 0.30) 0%, rgba(241, 233, 210, 0.30) 100%), #FFFFF8;
     box-shadow: -40px 0px 90px 0px rgba(0, 0, 0, 0.15);
 }
@@ -15,7 +12,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
 }
 
 .logoimg{
@@ -25,6 +21,41 @@
     padding-right: 2vw;
 }
 
-a{
+p a{
     text-decoration: underline;
+}
+
+@media only screen and (max-width: 600px) {
+    .footerWrap{
+        font-size: 0.813rem;
+        gap: 80px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .footerWrap{
+        font-size: 0.938rem;
+        gap: 80px;
+    } 
+}
+
+@media only screen and (min-width: 768px) {
+    .footerWrap{
+        font-size: 1.063rem;
+        gap: 100px;
+    }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1279px) {
+    .footerWrap{
+        font-size: 1.156rem;
+        gap: 160px;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .footerWrap{
+        font-size: 1.25rem;
+        gap: 244px;
+    }
 }

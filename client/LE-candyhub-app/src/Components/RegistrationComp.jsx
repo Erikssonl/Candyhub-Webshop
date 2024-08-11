@@ -8,7 +8,7 @@ const RegistrationComp = () => {
 
   return (
     <div className={styles.regWrap}>
-        <div className="card w-96 bg-base-100 shadow-xl">
+        <div className="card max-w-full bg-base-100 shadow-xl">
             <div className="card-body">
                 <h2 className="card-title">Registration</h2>
                 <label className="input input-bordered flex items-center gap-2">
