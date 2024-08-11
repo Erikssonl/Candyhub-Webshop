@@ -7,7 +7,7 @@ const Cart = () => {
   const navigate = useNavigate()
   const { cart, postToOrders, removeFromCart, updateItemQuantityCart, handleBackToHomeClick } = useContext(CandyContext)
   const [orderMessage, setOrderMessage] = useState('')
-  
+
   const handleOrderPlaced = () => {
     navigate('/')
   }
@@ -30,7 +30,6 @@ const Cart = () => {
     updateItemQuantityCart(productId, quantity)
   }
 
-
   return (
     <div>
         <button onClick={() => handleBackToHomeClick()} 
@@ -40,6 +39,7 @@ const Cart = () => {
       <div className={styles.cartContentWrap}>
         <div className={styles.cartWrap}>
           <h2 className={styles.h2Cart}>Candy Cart</h2>
+          {orderMessage && <p>{orderMessage}</p>}
           <div>
             {cart && cart.length > 0 ? (
               <div>
@@ -78,19 +78,15 @@ const Cart = () => {
                   </ul>
                 </div>
                 <div className="flex justify-center w-full mt-10">
-                  <button
-                  onClick={handlePlaceOrder}
-                  className="btn bg-customBtnGreen rounded-full px-6 py-2 font-semibold hover:bg-green-300 transition-colors shadow-btnShadow self-center ">
+                  <button onClick={handlePlaceOrder} className="btn bg-customBtnGreen rounded-full px-6 py-2 font-semibold hover:bg-green-300 transition-colors shadow-btnShadow self-center ">
                     Place order
                   </button>
-                  {orderMessage && <p>{orderMessage}</p>}
                 </div>
               </div>
             ) : ( 
                 <h2>The cart is empty</h2>
             )}
           </div>
-
         </div>
       </div>
     </div>

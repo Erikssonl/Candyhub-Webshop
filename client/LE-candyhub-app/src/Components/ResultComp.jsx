@@ -44,7 +44,6 @@ const ResultComp = () => {
                                             <figure className="px-10 pt-10">
                                                 <img src={candy.image_path} alt="" className="rounded-xl" />
                                             </figure>
-                                            {/* <img className={styles.candyImg} src={candy.image_path} alt="" /> */}
                                             <h3 className="card-title">{candy.name}</h3>
                                             <p>{candy.category}</p>
                                             <p>Price: {candy.price}$</p>
@@ -95,5 +94,3 @@ const ResultComp = () => {
       )
     }
     export default ResultComp;
-
-    // card w-96 bg-base-100 shadow-xl m-4

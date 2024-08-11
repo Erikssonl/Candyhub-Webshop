@@ -26,7 +26,6 @@
 .homeContent{
     display: flex;
     width: 1280px;
-    /* padding: 120px 0px; */
     align-items: center;
     gap: 50px;
     justify-content: space-around;

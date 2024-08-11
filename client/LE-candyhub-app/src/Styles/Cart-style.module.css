@@ -2,9 +2,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    
+    justify-content: center;   
 }
+
 .cartWrap{
     display: flex;
     flex-direction: column;
@@ -37,7 +37,6 @@
     box-sizing: border-box;
 }
 
-
 .quantityInput{
     padding: 3% 5%;
     border: 0.5px solid;
@@ -68,7 +67,6 @@
         gap: 1rem;
         padding: 0.5rem;
     }
-
 }
 
 @media only screen and (min-width: 600px) {
@@ -83,8 +81,7 @@
     .productList {
         gap: 1rem;
         padding: 0.5rem;
-    }
-    
+    }  
 }
 
 @media only screen and (min-width: 768px) {
