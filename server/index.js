@@ -3,7 +3,7 @@ const cors = require('cors');
 const express = require('express');
 const dotenv = require("dotenv");
 dotenv.config();
-const mysql = require('mysql');
+const mysql = require('mysql2');
 
 // Create a MySQL connection
 const connection = mysql.createPool({
