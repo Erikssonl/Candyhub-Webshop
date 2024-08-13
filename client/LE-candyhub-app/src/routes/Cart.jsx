@@ -54,6 +54,7 @@ const Cart = () => {
                           <div>
                             <p className="font-bold">{item.name}</p>
                             <p>Unit price: ${item.price}</p>
+                            {/* <p>Total: ${ (item.price * item.quantity) }</p> att uppdatera med när jag får tid */}
                           </div>
                         </div>
                         <div className="flex flex-col md:flex-row md:flex-1 items-center gap-2 md:justify-between mt-2 md:mt-0">
