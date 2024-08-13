@@ -39,7 +39,7 @@ const CandyContextProvider = (props) => {
     const [cartCount, setCartCount] = useState(0);
 
     const getFromCandyProducts = () => {
-      fetch("http://localhost:3000/products")
+      fetch("https://candyhub.up.railway.app/products")
           .then(response => response.json())
           .then(data => {
               const categoryMap = data.reduce((acc, item) => {
@@ -90,7 +90,7 @@ const CandyContextProvider = (props) => {
     const [regStatus, setRegStatus] = useState(null)
 
     const postToUsers = () => {
-        fetch('http://localhost:3000/registration', {
+        fetch('https://candyhub.up.railway.app/registration', {
             method: 'POST',
             headers: { 'Content-Type':  'application/json'  },
             body: JSON.stringify({
