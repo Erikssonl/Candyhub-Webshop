@@ -179,7 +179,6 @@ const CandyContextProvider = (props) => {
       .catch(error => {
         console.error('Error:', error);
       });
-
     }
 
     const removeFromCart = (productId) => {
