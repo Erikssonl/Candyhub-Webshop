@@ -115,7 +115,7 @@ const CandyContextProvider = (props) => {
     }
 
     const login = () => {
-      fetch('http://localhost:3000/login', {
+      fetch('https://candyhub.up.railway.app/login', {
           method: 'POST',
           headers: { 'Content-Type':  'application/json'  },
           body: JSON.stringify({
@@ -161,7 +161,7 @@ const CandyContextProvider = (props) => {
         orderId: orderId
       }));
 
-      return fetch('http://localhost:3000/orders', {
+      return fetch('https://candyhub.up.railway.app/orders', {
         method: 'POST',
         headers: { 'content-Type': 'application/json' },
         body: JSON.stringify({ orders: ordersWithOrderId})
